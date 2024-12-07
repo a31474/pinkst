@@ -17,15 +17,15 @@
 
 == 定理 dingli
 
-#dingli-1[测试]
+#dingli-1[测试][] <a>
 
 $ a times b $
 
-#dingli-1[测试]
+#dingli-1[测试][]
 
 $ b times c $
 
-#dingli-1(step: false)[-b]
+#dingli-1(step: false)[-b][] <b>
 
 $ c times e $
 
@@ -36,3 +36,7 @@ $ c times e $
 #dingli-3[测试][
   $ f times g $
 ]
+
+@a
+
+@b

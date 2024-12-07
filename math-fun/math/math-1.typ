@@ -1,17 +1,21 @@
 #import "util.typ": m-color, fake-par, f-heading
 
-#let math-fun-1(type, step: true, math-color: rgb(0, 0, 0), it) = (
+#let math-fun-1(type, step: true, math-color: rgb(0, 0, 0), it, body) = figure(
   {
     if step {
       counter(type).step()
     }
-    set text(fill: math-color, weight: "bold")
-    type + (
-      context {
-        numbering("1.1-", ..f-heading()) + counter(type).display()
-      }
-    ) + it
-  } + h(1.8em)
+    {
+      set text(fill: math-color, weight: "bold")
+      type + (
+        context {
+          numbering("1.1-", ..f-heading()) + counter(type).display()
+        }
+      ) + it
+    } + h(1.8em) + body
+  },
+  supplement: type + ":" + str(int(step)),
+  kind: "math-fun",
 )
 
 #let dingyi-1 = math-fun-1.with("定义", math-color: m-color.green)

@@ -1,7 +1,8 @@
 #import "header/conf.typ" as pinkst-header
 #import "math/conf.typ" as pinkst-math
 #import "num/conf.typ" as pinkst-num
- 
+#import "math-fun/conf.typ" as pinkst-math-fun
+
 #import "@preview/numbly:0.1.0": numbly
 
 #let fake-par = context {
@@ -17,6 +18,7 @@
   show: pinkst-header.conf
   show: doc => pinkst-math.conf(doc, math-fun-level)
   show: doc => pinkst-num.conf(doc, math-equation-level)
+  show: pinkst-math-fun.conf
   doc
 }
 
@@ -38,6 +40,7 @@
   show heading: it => it + fake-par
   show enum: it => it + fake-par
   show list: it => it + fake-par
+  show figure: it => it + fake-par
   show math.equation.where(block: true): it => it + fake-par
 
   doc

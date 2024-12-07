@@ -10,7 +10,7 @@
   color-frame: rgb(0, 0, 0),
   it,
   body,
-) = (
+) = figure(
   {
     if step {
       counter(type).step()
@@ -39,8 +39,11 @@
       title: text(weight: "bold",main),
     )[#body],
   )
-  } + fake-par
+  },
+  supplement: type + ":" + str(int(step)),
+  kind: "math-fun",
 )
+
 #let dingyi-3 = math-fun-3.with("定义", counter-use: true, color-body: m-color.thin-green, color-frame: m-color.green)
 #let dingli-3 = math-fun-3.with(
   "定理",

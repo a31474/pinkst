@@ -13,7 +13,7 @@
   color-text: rgb(0, 0, 0),
   it,
   body,
-) = (
+) = figure(
   {
     let main = h(1.8em) + type + {
       if counter-use {
@@ -21,13 +21,16 @@
           counter(type).step()
         }
         context {
-          numbering("1.1-",..f-heading()) + counter(type).display()
+          numbering("1.1-", ..f-heading()) + counter(type).display()
         }
       }
     } + it + h(1.8em)
     math-fun-2-block(fill: color-box, text(fill: color-text, weight: "bold", main) + body)
-  } + fake-par
+  },
+  supplement: type + ":" + str(int(step)),
+  kind: "math-fun",
 )
+
 #let dingyi-2 = math-fun-2.with("定义", counter-use: true, color-box: m-color.thin-green, color-text: m-color.green)
 #let dingli-2 = math-fun-2.with("定理", counter-use: true, color-box: m-color.thin-blue, color-text: m-color.light-blue)
 #let mingti-2 = math-fun-2.with("命题", counter-use: true, color-box: m-color.thin-blue, color-text: m-color.light-blue)
