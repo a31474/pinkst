@@ -43,5 +43,7 @@
   show figure: it => it + fake-par
   show math.equation.where(block: true): it => it + fake-par
 
+  show ref: set text(blue)
+
   doc
 }
