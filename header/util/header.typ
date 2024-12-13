@@ -33,13 +33,52 @@
 ]
 
 // 页眉
-#let header-normal() = header-rect(
-  [],
-  header-heading(),
-  header-page-num(),
-) + coun-page-1.update(1)
+#let header-normal() = (
+  header-rect(
+    [],
+    header-heading(),
+    header-page-num(),
+  ) + coun-page-1.update(1)
+)
 
 #let header-fun() = {
   set text(fill: rgb(60, 113, 183))
   header-normal()
+}
+
+// 页眉-book
+#let header-heading-odd() = {
+  find-1().at("value-h")
+}
+#let header-heading-even() = {
+  find-2().at("value-h")
+}
+
+#let header-page-num-book() = {
+  if coun-page-1.get().at(0) == 0 {
+    [1]
+  } else {
+    counter(page).display("1")
+  }
+}
+
+#let header-normal-book() = context {
+  if calc.odd(here().page()) {
+    header-rect(
+      header-page-num-book(),
+      header-heading-odd(),
+      [],
+    )
+  } else {
+    header-rect(
+      [],
+      header-heading-even(),
+      header-page-num-book(),
+    )
+  }
+} + coun-page-1.update(1)
+
+#let header-fun-book() = {
+  set text(fill: rgb(60, 113, 183))
+  header-normal-book()
 }

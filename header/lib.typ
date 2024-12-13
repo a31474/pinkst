@@ -1,1 +1,1 @@
-#import "conf.typ": conf
+#import "conf.typ": conf, conf-book

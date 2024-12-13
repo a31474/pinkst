@@ -22,6 +22,18 @@
   doc
 }
 
+#let conf-book(
+  doc,
+  math-equation-level: 1,
+  math-fun-level: 1,
+) = {
+  show: pinkst-header.conf-book
+  show: doc => pinkst-math.conf(doc, math-fun-level)
+  show: doc => pinkst-num.conf(doc, math-equation-level)
+  show: pinkst-math-fun.conf
+  doc
+}
+
 #let conf-style(doc) = {
   set page(margin: (x: 9.5%))
   set heading(numbering: numbly("第{1}章", default: "1.1"))
